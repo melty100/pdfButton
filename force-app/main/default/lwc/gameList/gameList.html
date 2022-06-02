@@ -1,0 +1,16 @@
+<template>
+    <lightning-card title="Games">
+        <template if:true={games.data}>
+            <lightning-combobox value={value} placeholder="Name" options={options} onchange={handleChange}></lightning-combobox>
+
+        </template>
+        <lightning-layout multiple-rows="true" pull-to-boundary="small">
+            <template for:each={games.data} for:item="game">
+                <lightning-layout-item key={game.Id} size="2" class="slds-var-p-around_x-small">
+                    <c-game-tile game={game}></c-game-tile>
+                </lightning-layout-item>
+            </template>
+        </lightning-layout>
+    </lightning-card>
+    
+</template>

@@ -1,0 +1,37 @@
+<apex:page controller="OpportunityPDFController" renderAs="pdf" applyHtmlTag="false" showHeader="false" cache="true" readOnly="true">
+    <html>
+        <head>
+            <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+        </head>
+        <body>
+
+            <div class="header">
+                <img src="{!$Resource.LOGO}" width="25%"/>
+                <address>
+                    {!Org.street}<br/>
+                    {!Org.City}, {!Org.State} {!Org.PostalCode}
+                </address>
+            </div>
+
+            <hr></hr>
+            
+            <div>
+                <h3>Prepared for: {!opportunity.Account.name}</h3> 
+                <address>
+                    {!opportunity.account.BillingStreet} <br></br>
+                    {!opportunity.account.BillingCity}, {!opportunity.account.BillingState} {!opportunity.account.BillingPostalCode}
+                </address>
+            </div> 
+
+            <apex:pageBlock title="{!opportunity.Name} Product Items">
+                <apex:pageBlockTable value="{!opportunity.OpportunityLineItems}" var="product" border="2" cellpadding="5">
+                   <apex:column value="{!product.Product2.Name}"/>
+                   <apex:column value="{!product.Quantity}"/>
+                   <apex:column value="{!product.UnitPrice}"/>
+                   <apex:column value="{!product.TotalPrice}"/>
+                </apex:pageBlockTable>
+             </apex:pageBlock>
+
+        </body>
+    </html>
+</apex:page>

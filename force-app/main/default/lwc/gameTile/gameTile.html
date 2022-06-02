@@ -1,0 +1,15 @@
+<template>
+    <lightning-card title={game.Name} class="game-title">
+        <div class="slds-var-p-horizontal_small">
+            <div class="slds-media">
+
+                <div class="slds-media__body">
+                    <img src={game.Background_Image__c} />
+                    <p>{game.Name}</p>
+                    <p>{game.released__c}</p>
+                    <p>{game.Rating__c}</p>
+                </div>
+            </div>
+        </div>
+    </lightning-card>
+</template>
